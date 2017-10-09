@@ -24,6 +24,9 @@ function setup() {
         if ( i == 0 && j > 0 ) {
           flowerX = flowers[i][j - 1].x + (flowers[i][j - 1].width + 5);
           flowerY = topOffset;
+        } else if ( i > 0 && j == 0 ) {
+          flowerX = leftOffset;
+          flowerY = flowers[i - 1][j].y + (flowers[i - 1][j].height + 5);
         }
       }      
       flowers[i][j] = new Flower( flowerX, flowerY);     

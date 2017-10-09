@@ -2,8 +2,8 @@ function Flower(xPos, yPos) {
   this.x = xPos == 0 ? 10 : xPos;
   this.y = yPos == 0 ? 20 : yPos;
   this.xSpeed = 1;
-  this.height = 25;
-  this.width = 60;
+  this.height = ( height - 20 + 360 ) / (4 * 5);
+  this.width = ( width - 50 ) / 8;
   
   this.show = function () {
     console.log(xPos);
