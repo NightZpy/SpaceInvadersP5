@@ -11,24 +11,8 @@ var topOffset = 20;
 function setup() {
   createCanvas (sceneWidth, sceneHeight)
   ship = new Ship();
-  
-  for (var i = 0; i < flowersRow; i ++) {
-    flowers[i] = []
-    for (var j = 0; j < flowersCol; j ++) {
-      var flowerX = 0;
-      var flowerY = 0;
-      if ( i == 0 && j == 0 ) {
-        flowerX = leftOffset;
-        flowerY = topOffset;
-      } else {
-        if ( i == 0 && j > 0 ) {
-          flowerX = flowers[i][j - 1].x + (flowers[i][j - 1].width + 5);
-          flowerY = topOffset;
-        }
-      }      
-      flowers[i][j] = new Flower( flowerX, flowerY);     
-    }
-  }
+  initFlowers();
+
 }
 
 function draw() {
@@ -48,5 +32,31 @@ function keyPressed () {
     ship.right();
   } else if ( keyCode === LEFT_ARROW ) {
     ship.left();
+  }
+}
+
+function initFlowers () {
+  for (var i = 0; i < flowersRow; i ++) {
+    flowers[i] = []
+    for (var j = 0; j < flowersCol; j ++) {
+      var flowerX = 0;
+      var flowerY = 0;
+      if ( i == 0 && j == 0 ) {
+        flowerX = leftOffset;
+        flowerY = topOffset;
+      } else {
+        if ( i == 0 && j > 0 ) {
+          flowerX = flowers[i][j - 1].x + (flowers[i][j - 1].width + 5);
+          flowerY = topOffset;
+        } else if ( i > 0 && j == 0 ) {
+          flowerX = leftOffset;
+          flowerY = flowers[i - 1][j].y + (flowers[i - 1][j].height + 5);
+        } else {
+          flowerY = flowers[i - 1][j].y + (flowers[i - 1][j].height + 5);
+          flowerX = flowers[i][j - 1].x + (flowers[i][j - 1].width + 5);
+        }
+      }      
+      flowers[i][j] = new Flower( flowerX, flowerY);     
+    }
   }
 }
