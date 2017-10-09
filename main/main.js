@@ -7,6 +7,7 @@ var flowersCol = 8;
 var flowerQuantity = flowersRow * flowersCol;
 var leftOffset = 25;
 var topOffset = 20;
+var mouseIsPressed = false;
 
 function setup() {
   createCanvas (sceneWidth, sceneHeight)
@@ -18,6 +19,9 @@ function setup() {
 function draw() {
   background (51);
   ship.show();
+  if ( mouseIsPressed ) 
+    ship.shot();  
+  ship.moveDrops();    
   
   for (var i = 0; i < flowersRow; i ++)  {
     flowersRowItem = flowers[i];
@@ -32,6 +36,12 @@ function keyPressed () {
     ship.right();
   } else if ( keyCode === LEFT_ARROW ) {
     ship.left();
+  }
+}
+
+function mousePressed () {
+  if ( mouseButton == LEFT ) {
+    mouseIsPressed = true;    
   }
 }
 

@@ -6,11 +6,11 @@ function Flower(xPos, yPos) {
   this.width = ( width - 180 ) / 8;
   
   this.show = function () {
-    console.log(xPos);
+    //console.log(xPos);
     //console.log( (this.x + this.width) + ', ' + (this.y + this.height) + ', ' + this.width + ', ' + this.height );
     fill ( 255, 120, 180 );
     ellipse ( this.x + this.width, this.y + this.height, this.width, this.height );
-    console.log ( this.width + ', ' + this.height );
+    //console.log ( this.width + ', ' + this.height );
   }
   
   this.move = function ( direction ) {
