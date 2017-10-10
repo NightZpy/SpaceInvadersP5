@@ -28,7 +28,8 @@ Ship = function () {
   this.shot = function () {
     console.log ('Millis: ' + millis() + '; Old: ' + this.millisecond );
     console.log ('Diff: ' + (millis() - this.millisecond) );
-    if ( (millis() - this.millisecond) / 1000 > 3 ) {    
+    if ( (millis() - this.millisecond)  > 1000 ) {    
+      console.log('Shooooooot!');
       this.drops[this.cDrops] = new Drop(this.x, height - this.height);    
       this.drops[this.cDrops].show();    
       this.cDrops ++;      
